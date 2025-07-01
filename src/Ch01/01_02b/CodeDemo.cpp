@@ -2,11 +2,22 @@
 // Exercise 01_02
 // Hello World, by Eduardo Corpeño 
 
+/*This is a 
+multiline comment*/
+
+//Every line of executable code must be part of a function (defined with return type, name, and parameters)
+
+//compiler directive (always start with #) named include
 #include <iostream>
+
+//Allows us to do C-style input and output operations (such as printf)
+#include <cstdio>
 
 //main function must return an int
 //can receive nothing or strings from command line
-int main(){
+//argc represents the number of command line arguments and
+//argv is C-style strings representing the actual arguments
+int main(int argc, char* argv){
     //iostream file is a member of the standard (std) library (membership is represented by :: which
     //is the scope resolution operator)
 
@@ -19,5 +30,12 @@ int main(){
     std::cout << "Hi There!" << std::endl;
 
     std::cout << std::endl << std::endl;
+
+    //C-style output
+    printf("Hey, there!\n");
+
+    //returning 0 usually means program usually means program was successfully and non-zero 
+    //usually means some error occurred
+
     return 0;
 }
