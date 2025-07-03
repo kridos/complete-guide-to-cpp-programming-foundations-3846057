@@ -15,16 +15,16 @@ Inventory::~Inventory(){
     delete items; // Prevent memory leak by deallocating the dynamic vector
 }
 
-// Add item to inventory
-void Inventory::addItem(const std::string& item){
+// Overload += operator to add an item
+Inventory& Inventory::operator+=(const std::string& item){
     if (items->size() < capacity)
         items->push_back(item);
     else
         std::cout << "Inventory is full, cannot add " << item << std::endl;
 }
 
-// Remove item from inventory
-void Inventory::removeItem(const std::string& item){
+// 
+Inventory& Inventory::operator-=(const std::string& item){
     auto it = std::find(items->begin(), items->end(), item);
     if (it != items->end())
         items->erase(it);
@@ -33,7 +33,7 @@ void Inventory::removeItem(const std::string& item){
 }
 
 // Access item by index
-std::string Inventory::getItem(int index) const{
+std::string Inventory::operator[](int index) const{
     if (index >= 0 && index < items->size())
         return (*items)[index];
     else

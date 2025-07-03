@@ -8,6 +8,8 @@
 #include <algorithm>
 #include <iostream>
 
+//Operators can be unary (one operand), binary (two operands) or ternary
+//(three operands)
 class Inventory{
 public:
     // Constructor
@@ -20,13 +22,13 @@ public:
     ~Inventory();
 
     // Add item to inventory
-    void addItem(const std::string& item);
+    Inventory& operator+=(const std::string& item);
 
     // Remove item from inventory
-    void removeItem(const std::string& item);
+    Inventory& operator-=(const std::string& item);
 
     // Access item by index
-    std::string getItem(int index) const;
+    std::string operator[](int index) const;
 
     // Get number of items in the inventory
     int getItemCount() const;
