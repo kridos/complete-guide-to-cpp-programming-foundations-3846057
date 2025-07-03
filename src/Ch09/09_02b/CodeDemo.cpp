@@ -7,18 +7,24 @@
 #include <fstream>
 
 int main(){
-    std::ifstream inFile;
+    std::ifstream inFile; //input stream from a file
     std::string str;
     int number;
     char letter;
 
     inFile.open("players.txt");
-    if (inFile.fail())
+    if (inFile.fail()) //Checks if the open function failed
         std::cout << std::endl << "File not found!" << std::endl;
     else{
-        while (!inFile.eof()){
+        while (!inFile.eof()){ //assuming that file has exact format that we need
             getline(inFile, str);
-            std::cout << str << std::endl;
+            std::cout << str <<  ", ";
+            getline(inFile, str);
+            number = stoi(str); //convert string to int
+            std::cout << number <<  ", ";
+            getline(inFile, str);
+            letter = str[0];
+            std::cout << letter <<  std::endl;
         }
         inFile.close();
     }
