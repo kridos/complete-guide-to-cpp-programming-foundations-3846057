@@ -28,6 +28,24 @@ deque<pair<string, int>> ManagePetSchedule(const deque<pair<string, int>>& initi
 
     // Write your code here.
 
+    schedule = initialActivities;
+
+    for(int i = 0; i < operations.size(); i++){
+        if(operations[i].first == Operation::ADD_FRONT){
+            schedule.push_front(operations[i].second);
+
+        }else if(operations[i].first == Operation::ADD_BACK){
+            schedule.push_back(operations[i].second);
+
+        }else if(operations[i].first == Operation::REMOVE_FRONT){
+            schedule.pop_front();
+
+        }else{
+            schedule.pop_back();
+
+        }
+    }
+
     return schedule;
 }
 
